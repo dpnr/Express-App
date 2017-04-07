@@ -58,7 +58,7 @@ id: {
 
 });
 
-var Concept = module.exports = mongoose.model('v20160901',conceptSchema);
+var Concept = module.exports = mongoose.model('_20160901',conceptSchema);
 
 // Get Concepts
 
