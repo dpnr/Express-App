@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 Concept = require('./models/concept');
 
 //connect to Mongoose
-mongoose.connect('mongodb://pranavnath:pranavnath@ds157349.mlab.com:57349/snomed');
+mongoose.connect('mongodb://pranav:pranav@ds157349.mlab.com:57349/snomed');
 var db = mongoose.connection;
 
 app.get('/',function(req,res){

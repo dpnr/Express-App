@@ -58,7 +58,7 @@ id: {
 
 });
 
-var Concept = module.exports = mongoose.model('_20160901',conceptSchema);
+var Concept = module.exports = mongoose.model('s20160901',conceptSchema);
 
 // Get Concepts
 
@@ -76,6 +76,6 @@ Concept.find({referencedComponentId:conceptId},callback);
 //Get Description
 module.exports.getDescription = function(term,callback){
 console.log(term);
-Concept.find( { sctName: { "$regex": term, "$options": "i" } },callback).limit(50);
+Concept.find( { sctName: { "$regex": term, "$options": "i" } },callback);
 
 }
