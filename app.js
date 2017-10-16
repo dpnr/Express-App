@@ -43,6 +43,48 @@ Concept.getConceptById(req.params._conceptId,function(err,Concept){
 
 });
 
+app.get('/api/icd9codes/:_icd9code',function(req,res){
+    
+    Concept.getIcd9codes(req.params._icd9code,function(err,Concept){
+         if(err){
+    
+             throw err;
+         }
+         res.json(Concept);
+         console.log(Concept);
+    
+    });
+    
+    });
+
+app.get('/api/icd10codes/:_icd10code',function(req,res){
+    
+    Concept.getIcd10codes(req.params._icd10code,function(err,Concept){
+            if(err){
+    
+                throw err;
+            }
+            res.json(Concept);
+            console.log(Concept);
+    
+    });
+    
+    });
+
+app.get('/api/getStats/:_searchTerm',function(req,res){
+    
+    Concept.getStats(req.params._searchTerm,function(err,stats){
+         if(err){
+    
+             throw err;
+         }
+         res.json(stats);
+         console.log(stats);
+    
+    });
+    
+});
+
 
 app.get('/api/descriptions/:_term',function(req,res){
 
@@ -53,6 +95,34 @@ Concept.getDescription(req.params._term,function(err,descriptions){
      }
      res.json(descriptions);
      console.log(descriptions);
+
+});
+
+});
+
+app.get('/api/icd9Names/:_term',function(req,res){
+    
+Concept.getIcd9Names(req.params._term,function(err,descriptions){
+        if(err){
+
+            throw err;
+        }
+        res.json(descriptions);
+        console.log(descriptions);
+
+});
+
+});
+
+app.get('/api/icd10Names/:_term',function(req,res){
+    
+Concept.getIcd10Names(req.params._term,function(err,descriptions){
+        if(err){
+
+            throw err;
+        }
+        res.json(descriptions);
+        console.log(descriptions);
 
 });
 
