@@ -7,8 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
+    "connect": "^3.6.5",
+    "csv": "^2.0.0",
+    "csv-writer": "0.0.3",
+    "express": "*",
     "mongoose": "*"
   },
   "author": "Pranav",

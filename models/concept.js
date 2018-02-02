@@ -86,24 +86,46 @@ Concept.find({mapTarget:code},callback);
 //Get Description
 module.exports.getDescription = function(term,callback){
 console.log(term);
-Concept.find( { sctName: { "$regex": term, "$options": "i" } },callback).limit(50);
+Concept.find( { sctName: { "$regex": term, "$options": "i" } },callback);
 
 }
 
 //Get Icd9 names
 module.exports.getIcd9Names = function(term,callback){
-Concept.find({ icd9_name: { "$regex": term, "$options": "i"}},callback).limit(50);
+Concept.find({ icd9_name: { "$regex": term, "$options": "i"}},callback);
 }
 
 //Get Icd10 names
 module.exports.getIcd10Names = function(term,callback){
-  Concept.find({ icdName: { "$regex": term, "$options": "i"}},callback).limit(50);
+  Concept.find({ icdName: { "$regex": term, "$options": "i"}},callback);
   }
 
 //Get the Stats
-module.exports.getStats = function(searchterm,callback){
-  console.log(searchterm);
-  total_sct = Concept.distinct('sctName').length
-  console.log('here is the number of distinct sct names')
-  console.log(total_sct)
+module.exports.getStatsSct = function(searchterm,callback){
+  
+  Concept.find({ sctName: { "$regex": searchterm, "$options": "i" } })
+  .distinct('sctName')
+  .exec(callback);
+  
+  
+}
+
+module.exports.getStatsIcd9 = function(searchterm,callback){
+  
+  
+  Concept.find({ icd9_name: { "$regex": searchterm, "$options": "i" } })
+  .distinct('icd9_name')
+  .exec(callback);
+  
+  
+}
+
+module.exports.getStatsIcd10 = function(searchterm,callback){
+  
+  
+  Concept.find({ icdName: { "$regex": searchterm, "$options": "i" } })
+  .distinct('icdName')
+  .exec(callback);
+  
+  
 }
